@@ -7,11 +7,11 @@ myPromise1()
 })
 .then(filteredArr => {
 	// filteredArr is [2,4]
-	op.textContent = filteredArr.join(", ");
+	op.textContent = filteredArr.join(",");
 	return myPromise3(filteredArr);
 })
 .then(doubledArr => {
-	op.textContent = doubledArr.join(", ");
+	op.textContent = doubledArr.join(",");
 })
 .catch(err => {
 	console.log(err);
