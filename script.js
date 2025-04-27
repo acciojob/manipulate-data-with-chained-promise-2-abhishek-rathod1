@@ -2,14 +2,14 @@
 const op = document.getElementById("output");
 
 
-myPromise1.then(()=>{
+myPromise1().then((arr)=>{
 	// op.textContent = 
-	return myPromise2;
-}).then(data2 =>{
-	op.textContent = data2;
-	return myPromise3;
-}).then(data3=>{
-	op.textContent = data3;
+	return myPromise2(arr);
+}).then(filteredArr =>{
+	op.textContent = filteredArr.join(", ");
+	return myPromise3(filteredArr);
+}).then(doubleArr=>{
+	op.textContent = doubleArr.join(", ");
 }).catch((err)=>{
 	console.log(err);
 })
@@ -27,15 +27,15 @@ function myPromise1() {
 function myPromise2(arr) {
 	return new Promise((reslove, reject)=>{
 		setTimeout(()=>{
-			reslove([arr.filter((i)=>i%2==0)])
+			reslove(arr.filter((i)=>i%2==0))
 		},1000)
 	})	
 }
 
-function myPromise3() {
+function myPromise3(arr) {
 	return new Promise((resolve, reject)=>{
 		setTimeout(()=>{
-			resolve([4,8])
+			resolve(arr.map(i=>i*2);
 		},1000)
 	})
 	
